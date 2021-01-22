@@ -1,0 +1,45 @@
+
+
+.card{
+
+    padding-bottom: 5px;
+margin-top: 10px;
+    padding: 10px;
+
+}
+
+.card-text{
+    color: white;
+}
+
+
+
+.header{
+    background-color: #6b7394;
+}
+
+
+.bg-light {
+    background-color: #2a94e6!important;
+}
+.row {
+
+    padding: 50px;
+}
+.card{
+    background-color: #2a94e6!important;
+}
+.card-left{
+    padding: 20px;
+}
+.footer{
+
+    padding:30px;
+    margin-top:5px;
+
+
+}
+.footer{
+    background-color: #6b7394;
+
+}
