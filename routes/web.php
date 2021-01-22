@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Website\PageController@index')->name('index');
 
 
-Route::group(['prefix'=>'website'], function(){
+/*Route::group(['prefix'=>'website'], function(){
 
 
     Route::get('pages.admission-info', 'Website\PageController@admissioninfo')->name('website.addmission-info');
@@ -27,7 +27,7 @@ Route::group(['prefix'=>'website'], function(){
     Route::get('pages.notice', 'Website\PageController@notice')->name('website.notice');
 
 
-});
+});*/
 
 
 
@@ -62,8 +62,12 @@ Route::group(['prefix'=>'profiles','middleware' => 'auth'], function(){
 
 });
 
-
-
+//Supplier Login
+Route::get('/supplier-login','Frontend\SupplierLoginController@supplierLogin')->name('supplier.login');
+Route::get('/supplier-signup','Frontend\SupplierLoginController@supplierSignup')->name('supplier.signup');
+Route::post('/supplier-store','Frontend\SupplierLoginController@supplierStore')->name('supplier.store');
+Route::get('/email-verify','Frontend\SupplierLoginController@emailVerify')->name('email.verify');
+Route::post('/verify-store','Frontend\SupplierLoginController@verifyStore')->name('verify.store');
 
 Route::group(['prefix'=>'suppliers','middleware' => 'auth'], function(){
 
