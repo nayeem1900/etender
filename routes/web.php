@@ -129,6 +129,14 @@ Route::group(['prefix'=>'purchase','middleware' => 'auth'], function(){
 });
 
 
+Route::group(['prefix'=>'tsuppliers','middleware' => 'auth'], function(){
+
+    Route::get('/view', 'Backend\TsupplierController@view')->name('tsuppliers.view');
+    Route::get('/draft/view', 'Backend\TsupplierController@draftView')->name('tsuppliers.draft.view');
+
+    Route::post('/delete', 'Backend\TupplierController@delete')->name('tsuppliers.delete');
+});
+
 
 Route::get('/get-category','Backend\DefaultController@getcategory')->name('get-category');
 
