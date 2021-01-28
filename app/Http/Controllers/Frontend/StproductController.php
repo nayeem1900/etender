@@ -10,7 +10,6 @@ class StproductController extends Controller
     public function store(Request $request){
 
         $product =new Stproduct();
-        $product->name=$request->name;
         $product->brand = $request->brand;
         $product->orgin = $request->orgin;
         $product->unit = $request->unit;

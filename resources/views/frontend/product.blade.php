@@ -105,13 +105,9 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row"></th>
-                                            <td>  <select name="" class="form-control"id="">
-                                                    <option value="">Name of Item</option>
-                                                    @foreach($tproducts as $tproduct)
-                                                        <option value="{{$tproduct->id}}">{{$tproduct->name}}</option>
-                                                    @endforeach
 
-                                                </select></td>
+                                            <td> <input type="text" name="name"  class="form-control form-control-sm"id="name"></td>
+
                                                <td> <input type="text" name="brand"  class="form-control form-control-sm"id="name"></td>
                                              <td> <input type="text" name="orgin"  class="form-control form-control-sm"id="brand"></td>
                                             <td> <input type="text" name="unit"  class="form-control form-control-sm"id="unit"></td>
