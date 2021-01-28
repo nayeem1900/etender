@@ -14,11 +14,7 @@ class CreateTproductsTable extends Migration
     public function up()
     {
         Schema::create('tproducts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->tinyInteger('status')->default('1');
-            $table->integer('created_by')->nullable();
-            $table->integer('updated_by')->nullable();
+            $table->id();
             $table->timestamps();
         });
     }
