@@ -109,7 +109,22 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 
-
+{{--
+@if($errors->any())
+                    <div class="alert alert-danger alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+@foreach($errors->all()as $error)
+    <strong>{{$error}}</strong><br/>
+    @endforeach
+                    </div>
+                    @endif
+                    @if(Session::get('message'))
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>{{$error}}</strong>
+                        </div>
+                    @endif
+--}}
 
                     <div class="input-group mb-3">
                         <div class="input-group-append">

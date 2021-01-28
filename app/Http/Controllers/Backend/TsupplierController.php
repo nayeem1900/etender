@@ -18,13 +18,28 @@ class TsupplierController extends Controller
         return view('backend.tsupplier.draft-tsupplier',compact('allData'));
     }
 
-    public function delete(Request $request){
+    /*public function delete(Request $request){
 
         $tsupplier=User::find($request->id);
         $tsupplier->delete();
         return redirect()->route('tsuppliers.draft.view')->with('success','Data Deleted Successfully');
 
 
-    }
+    }*/
 
+
+    public function delete($id)
+    {
+
+        $tsupplier = User::find($id);
+        if (file_exists('public/upload/user_images/'. $tsupplier->image) AND! empty( $tsupplier->image))
+        {
+            unlink('public/upload/user_images/'. $tsupplier->image);
+        }
+
+
+        $tsupplier->delete();
+        return redirect()->route('tsuppliers.draft.view')->with('success', 'Data Deleted Successfully');
+
+    }
 }

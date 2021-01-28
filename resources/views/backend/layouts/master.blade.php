@@ -39,6 +39,9 @@
     <script src="{{asset('backend/admin_panel/plugins/jquery/jquery.min.js')}}"></script>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!--sweetalert --->
+    <script src="{{asset('backend/sweetalert/sweetalert.js')}}"></script>
+    <link href="{{asset('backend/sweetalert/sweetalert.cs')}}" rel="stylesheet" type="text/css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -311,6 +314,67 @@ reader.readAsDataURL(e.target.files['0']);
     });
 </script>
 
+<script type="text/javascript">
+ $(document).ready(function () {
+
+     $(document).on('click', '#delete', function () {
+
+
+         var actionTo = $(this).attr('href');
+         var token = $(this).attr('data-token');
+         var id = $(this).attr('data-id');
+
+         swal({
+
+                 title: "Are You Sure?",
+                 type: "success",
+                 showCancelButton: true,
+                 conffirmButtonClass: 'btn-danger',
+                 conffirmButtonText: 'Yes',
+                 cancelButtonText: 'No',
+                 closeOnConfirm: false,
+                 closeOnCancel: false
+
+             },
+
+             function (isConfirm) {
+                 if (isConfirm) {
+
+
+                     $.ajax({
+                         url: actionTo,
+                         type: 'post',
+                         data: {id: id, _token: token},
+                         success: function (data) {
+
+                             swal({
+                                     title: "Deleted!",
+                                     type: "success"
+                                 },
+                                 function (isConfirm) {
+                                     if (isConfirm) {
+
+                                         $('.' + id).fadeOut();
+                                     }
+
+                                 });
+
+
+                         }
+
+                     });
+                 } else {
+                     swal("Cancelled", "", "error");
+                 }
+
+
+             });
+         return false;
+
+     });
+ });
+
+</script>
 
 
 </body>

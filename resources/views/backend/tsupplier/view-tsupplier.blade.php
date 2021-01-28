@@ -79,7 +79,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="{{route('users.delete',$user->id)}}" method="post">
+                                                                <form action="{{route('tsuppliers.delete',$user->id)}}" method="post">
                                                                     @csrf
                                                                     <button type="submit" class="btn btn-danger" >Permanent Delete</button>
 

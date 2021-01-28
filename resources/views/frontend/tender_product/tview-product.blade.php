@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Manage Product</h1>
+                        <h1 class="m-0 text-dark">Manage Tender Product</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -35,9 +35,9 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3>Supplier List
+                                <h3>Product List
 
-                                    <a class="btn btn-success float-right btn-sm" href="{{route('products.add')}}"><i class="fa fa-plus-circle"></i> Add Product</a>
+                                    <a class="btn btn-success float-right btn-sm" href="{{route('tproducts.add')}}"><i class="fa fa-plus-circle"></i> Add TProduct</a>
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -49,11 +49,8 @@
                                     <tr>
 
                                         <th>SL.</th>
-                                        <th>Supplier Name</th>
-                                        <th>Category</th>
-                                        <th>Name</th>
-                                        <th>Unit</th>
 
+                                        <th>Product Name</th>
 
                                         <th>Action</th>
                                     </tr>
@@ -62,10 +59,12 @@
                                     @foreach($allData as $key=>$product)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$product['supplier']['name']}}</td>
-                                            <td>{{$product['category']['name']}}</td>
+
+
+
                                             <td>{{($product->name)}}</td>
-                                            <td>{{$product['unit']['name']}}</td>
+
+
 
 
                                             <td>

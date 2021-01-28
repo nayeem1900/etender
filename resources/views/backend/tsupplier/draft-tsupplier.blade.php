@@ -58,14 +58,14 @@
                                     </thead>
                                     <tbody>
                                     @foreach($allData as $key=>$user)
-                                        <tr>
+                                        <tr class="{{$user->id}}">
                                             <td>{{$key+1}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>{{$user->mobile}}</td>
                                             <td>
 
-                                                <a title="Delete" id="delete" class="btn btn-sm btn-danger" href="{{route('users.delete',$user->id)}}"data-token="{{csrf_token()}}" data-id="{{$user->id}}" ><i class="fa fa-trash"></i></a>
+                                                <a title="Delete" id="delete" class="btn btn-sm btn-danger" href="{{route('tsuppliers.delete')}}"data-token="{{csrf_token()}}" data-id="{{$user->id}}" ><i class="fa fa-trash"></i></a>
 
 
 
