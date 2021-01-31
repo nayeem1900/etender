@@ -37,86 +37,68 @@
                             <div class="card-header">
 
 
-                                <a class="btn btn-success float-right btn-sm" href=""><i class="fa fa-list"></i>Product List</a>
+                                <a class="btn btn-success float-right btn-sm" href="{{route('products.view')}}"><i class="fa fa-list"></i>Product List</a>
                                 </h3>
 
 
                             </div><!-- /.card-header -->
                             <div class="card-body" >
 
+
+
                                 <form method="POST" action="{{route('stproducts.store')}}" id="myForm" enctype="multipart/form-data" >
                                     @csrf
 
 
-                                    {{--<div class="form-row ">
+                                    <div class="form-row ">
 
                                         <div class="col-md-4">
+                                            <label for="tproduct_id"> Product Name  <font style="color: red">*</font></label>
+                                            <select name="tproduct_id" class="form-control"id="tproduct_id">
+                                                <option value="">Select Product</option>
+                                                @foreach($tproducts as $tproduct)
+                                                    <option value="{{$tproduct->id}}">{{$tproduct->name}}</option>
+                                                @endforeach
 
-                                            <label for="name">Product Name <font style="color: red">*</font></label>
-                                            <input type="text" name="name"  class="form-control form-control-sm"id="name">
+                                            </select>
 
                                         </div>
 
                                         <div class="col-md-4">
-                                            <label for="unit_id">Brand Name </label>
-
+                                            <label for="name">Brand Name <font style="color: red">*</font></label>
                                             <input type="text" name="brand"  class="form-control form-control-sm"id="brand">
+
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="unit_id">Orgin Name </label>
+                                            <label for="name">Orgin Name <font style="color: red">*</font></label>
+                                            <input type="text" name="orgin"  class="form-control form-control-sm"id="orgin">
 
-                                            <input type="text" name="orgin"  class="form-control form-control-sm"id="brand">
+
                                         </div>
 
                                         <div class="col-md-4">
-                                            <label for="name">Unit Name </label>
+                                            <label for="name">Unit Name <font style="color: red">*</font></label>
                                             <input type="text" name="unit"  class="form-control form-control-sm"id="name">
 
                                         </div>
 
+
                                         <div class="col-md-4">
-                                            <label for="name">Pack Size </label>
-                                            <input type="text" name="pack_size"  class="form-control form-control-sm"id="name">
+                                            <label for="name">Pack Size <font style="color: red">*</font></label>
+                                            <input type="text" name="pack_size"  class="form-control form-control-sm"id="pack_size">
 
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="name">Net Price </label>
-                                            <input type="text" name="net_price"  class="form-control form-control-sm"id="name">
+                                            <label for="name">Net Price <font style="color: red">*</font></label>
+                                            <input type="text" name="net_price"  class="form-control form-control-sm"id="net_price">
 
                                         </div>
 
 
 
-                                    </div><br/>--}}
+                                    </div><br/>
 
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th scope="col">Sl</th>
-                                            <th scope="col">Product Item </th>
-                                            <th scope="col">Brand Name </th>
-                                            <th scope="col">Orgin </th>
-                                            <th scope="col">Unit</th>
-                                            <th scope="col">Pack_size</th>
-                                            <th scope="col">Net_price</th>
 
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row"></th>
-
-                                            <td> <input type="text" name="name"  class="form-control form-control-sm"id="name"></td>
-
-                                               <td> <input type="text" name="brand"  class="form-control form-control-sm"id="name"></td>
-                                             <td> <input type="text" name="orgin"  class="form-control form-control-sm"id="brand"></td>
-                                            <td> <input type="text" name="unit"  class="form-control form-control-sm"id="unit"></td>
-                                            <td> <input type="text" name="pack_size"  class="form-control form-control-sm"id="pack_size"></td>
-                                            <td> <input type="text" name="net_price"  class="form-control form-control-sm"id="net_price"></td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
 
 
                                     <div class=" form-group col-md-6">
@@ -130,7 +112,6 @@
 
 
                                 </form>
-
 
 
 
@@ -158,7 +139,18 @@
                 rules: {
                     "name": {
                         required: true,
+                    },
+                    "unit_id": {
+                        required: true,
+                    },
+                    "supplier_id": {
+                        required: true,
 
+                    },
+                    "category_id": {
+                        required: true,
+
+                    }
 
                 },
 

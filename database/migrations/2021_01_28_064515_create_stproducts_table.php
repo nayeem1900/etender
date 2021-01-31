@@ -15,7 +15,7 @@ class CreateStproductsTable extends Migration
     {
         Schema::create('stproducts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->integer('tproduct_id');
             $table->string('brand');
             $table->string('orgin');
             $table->string('unit');
