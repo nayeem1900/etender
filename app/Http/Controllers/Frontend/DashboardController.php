@@ -14,7 +14,7 @@ class DashboardController extends Controller
 {
     public function dashboard(){
 /*dd('ok');*/
-$data['tproducts']=Tproduct::all();
+        $data['tproducts']=Tproduct::all();
         $data['suppliers']=Supplier::all();
         $data['units']=Unit::all();
         $data['categories']=Category::all();
@@ -26,17 +26,27 @@ $data['tproducts']=Tproduct::all();
 
     public function store(Request $request){
 
+        $countClass=count($request->tproduct_id);
 
-        $product =new Stproduct();
-        $product->tproduct_id = $request->tproduct_id;
-        $product->brand = $request->brand;
-        $product->orgin = $request->orgin;
-        $product->unit = $request->unit;
-        $product->pack_size = $request->pack_size;
-        $product->net_price = $request->net_price;
-        $product->created_by=Auth::user()->id;
-        $product->save();
-        return redirect()->route('supplier.login')->with('success','Product saved');
+        if($countClass != Null) {
+            for ($i = 0; $i < $countClass; $i++) {
+
+
+                $product = new Stproduct();
+                $product->tproduct_id = $request->tproduct_id[$i];
+                $product->brand = $request->brand[$i];
+                $product->orgin = $request->orgin[$i];
+                $product->unit = $request->unit[$i];
+                $product->pack_size = $request->pack_size[$i];
+                $product->net_price = $request->net_price[$i];
+                $product->created_by = Auth::user()->id;
+                $product->save();
+
+            }
+        }
+
+
+        return redirect()->route('dashboard')->with('success','Product saved');
     }
 
 
