@@ -10,8 +10,25 @@ use App\Model\Stproduct;
 use App\Model\Supplier;
 use App\Model\Unit;
 use App\Model\Category;
+use App\User;
 class DashboardController extends Controller
 {
+
+  public function view(){
+      $data['allData']=User::where('usertype','supplier')->get();
+
+      $data['tproducts']=Tproduct::all();
+      $data['suppliers']=Supplier::all();
+      $data['units']=Unit::all();
+      $data['categories']=Category::all();
+    $data['stproducts']=Stproduct::all();
+      return view('frontend.stproduct.view-stproduct',$data);
+
+
+
+  }
+
+
     public function dashboard(){
 /*dd('ok');*/
         $data['tproducts']=Tproduct::all();
@@ -25,6 +42,7 @@ class DashboardController extends Controller
 
 
     public function store(Request $request){
+
 
         $countClass=count($request->tproduct_id);
 
@@ -44,7 +62,6 @@ class DashboardController extends Controller
 
             }
         }
-
 
         return redirect()->route('dashboard')->with('success','Product saved');
     }

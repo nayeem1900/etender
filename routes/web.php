@@ -45,8 +45,10 @@ Auth::routes();
 //Customer Dashboard
 
 Route::group(['middleware' => ['auth','supplier']], function() {
-    Route::get('/dashboard', 'Frontend\DashboardController@dashboard')->name('dashboard');
+   Route::get('/dashboard', 'Frontend\DashboardController@dashboard')->name('dashboard');
     Route::post('/store', 'Frontend\DashboardController@store')->name('dashboard.store');
+    Route::get('/view', 'Frontend\DashboardController@view')->name('dashboard.view');
+    Route::get('/edit/{id}', 'Frontend\DashboardController@edit')->name('dashboard.edit');
 
     Route::prefix ('stproducts')->group (function () {
 
