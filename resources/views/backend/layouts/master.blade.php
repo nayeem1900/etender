@@ -42,6 +42,12 @@
     <!--sweetalert --->
     <script src="{{asset('backend/sweetalert/sweetalert.js')}}"></script>
     <link href="{{asset('backend/sweetalert/sweetalert.cs')}}" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/trirand/ui.jqgrid.css" />
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -238,6 +244,12 @@ $(function(){
 <script src="{{asset('backend/js/handlebars.min-v4.7.6.js')}}"></script>
 {{-- Notyfy JS--}}
 <script src="{{asset('backend/js/notify.min.js')}}"></script>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="js/trirand/i18n/grid.locale-en.js" type="text/javascript"></script>
+<script src="js/trirand/jquery.jqGrid.min.js" type="text/javascript"></script>
 
 
 

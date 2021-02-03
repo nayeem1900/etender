@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test-grid', function () {
+   return view('test-grid');
+});
+
+Route::get('/fetch-data', function () {
+   $product = Product::select('id', 'name')->get();
+
+   return response()->json($product);
+});
 Route::get('/', 'Website\PageController@index')->name('index');
 
 
@@ -147,7 +157,7 @@ Route::group(['middleware' => ['auth','admin']], function() {
         Route::post('/store', 'Backend\ProductController@store')->name('products.store');
         Route::get('/edit/{id}', 'Backend\ProductController@edit')->name('products.edit');
         Route::post('/update/{id}', 'Backend\ProductController@update')->name('products.update');
-        Route::get('/delete/{id}', 'Backend\ProductController@delete')->name('products.delete');
+        Route::post('/delete/{id}', 'Backend\ProductController@delete')->name('products.delete');
     });
 
     Route::prefix ('tproducts')->group (function () {

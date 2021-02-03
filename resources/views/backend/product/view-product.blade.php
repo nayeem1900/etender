@@ -47,14 +47,11 @@
 
                                     <thead>
                                     <tr>
-
                                         <th>SL.</th>
                                         <th>Supplier Name</th>
                                         <th>Category</th>
                                         <th>Name</th>
                                         <th>Unit</th>
-
-
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -63,6 +60,9 @@
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$product['supplier']['name']}}</td>
+                                            <td>
+                                                    <input type="text" name="pack_size[]">
+                                            </td>
                                             <td>{{$product['category']['name']}}</td>
                                             <td>{{($product->name)}}</td>
                                             <td>{{$product['unit']['name']}}</td>
@@ -70,7 +70,12 @@
 
                                             <td>
                                                 <a title="Edit" class="btn btn-sm btn-primary" href="{{route('products.edit',$product->id)}}"><i class="fa fa-edit"></i></a>
-                                                <a title="Delete" class="btn btn-sm btn-danger" href="{{route('products.delete',$product->id)}}"><i class="fa fa-trash"></i></a>
+
+                                                <form action="{{route('products.delete',$product->id)}}" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                                </form>
+{{--                                                <a title="Delete" class="btn btn-sm btn-danger" href="{{route('products.delete',$product->id)}}"><i class="fa fa-trash"></i></a>--}}
 
 
                                             </td>
