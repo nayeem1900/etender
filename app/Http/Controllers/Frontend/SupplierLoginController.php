@@ -38,6 +38,7 @@ class SupplierLoginController extends Controller
             $code = rand(0000, 9999);
             $user->usertype = 'supplier';
             $user->name = $request->name;
+            $user->organization = $request->organization;
             $user->email = $request->email;
             $user->mobile = $request->mobile;
             $user->password = bcrypt($request->password);

@@ -49,6 +49,8 @@
                                     <tr>
                                         <th>SL</th>
                                         <th>Product Name</th>
+                                        <th>User Name</th>
+                                        <th>Organization</th>
                                         <th>Brand Name</th>
                                         <th>Orgin Name</th>
                                         <th>Unit Name</th>
@@ -59,21 +61,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($allData as $key=>$product)
+                                    @foreach($stproducts as $key => $data)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{($product->name)}}</td>
-                                            <td>{{($product->brand)}}</td>
-                                            <td>{{($product->orgin)}}</td>
-                                            <td>{{($product->unit)}}</td>
-                                            <td>{{($product->pack_size)}}</td>
-                                            <td>{{($product->net_price)}}</td>
-
+                                            <td>{{($data->product_name)}}</td>
+                                            <td>{{($data->user_name)}}</td>
+                                            <td>{{($data->organization)}}</td>
+                                            <td>{{($data->brand)}}</td>
+                                            <td>{{($data->orgin)}}</td>
+                                            <td>{{($data->unit)}}</td>
+                                            <td>{{($data->pack_size)}}</td>
+                                            <td>{{($data->net_price)}}</td>
                                             <td>
-                                                <a title="Edit" class="btn btn-sm btn-primary" href=""><i class="fa fa-edit"></i></a>
+                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('dashboard.edit', ['id' => $data->stp_id])}}"><i class="fa fa-edit"></i></a>
                                                 <a title="Details" target="_blank" class="btn btn-sm btn-success" href=""><i class="fa fa-eye"></i></a>
-
-
                                             </td>
 
                                         </tr>

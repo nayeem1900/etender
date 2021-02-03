@@ -49,11 +49,11 @@ Route::group(['middleware' => ['auth','supplier']], function() {
     Route::post('/store', 'Frontend\DashboardController@store')->name('dashboard.store');
     Route::get('/view', 'Frontend\DashboardController@view')->name('dashboard.view');
     Route::get('/edit/{id}', 'Frontend\DashboardController@edit')->name('dashboard.edit');
-
+    Route::post('/edit/{id}', 'Frontend\DashboardController@update')->name('dashboard.update');
     Route::prefix ('stproducts')->group (function () {
 
 
-        Route::get('/view', 'Frontend\StproductController@view')->name('stproducts.view');
+        /*Route::get('/view', 'Frontend\StproductController@view')->name('stproducts.view');*/
         Route::get('/add', 'Frontend\StproductController@add')->name('stproducts.add');
         Route::post('/store', 'Frontend\StproductController@store')->name('stproducts.store');
         Route::get('/edit/{id}', 'Frontend\StproductController@edit')->name('stproducts.edit');

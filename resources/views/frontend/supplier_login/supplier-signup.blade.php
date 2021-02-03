@@ -43,6 +43,11 @@
                             <label for="fullname" class="text-info">Full Name:</label><br>
                             <input type="text" name="name" id="name" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="fullname" class="text-info">Organization Name:</label><br>
+                            <input type="text" name="organization" id="organization" class="form-control">
+                        </div>
+
 
                         <div class="form-group">
                             <label for="username" class="text-info">Email:</label><br>

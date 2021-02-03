@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('usertype')->nullable()->comment('student,employee,admin');
             $table->string('name')->nullable();
+            $table->string('organization')->nullable();
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
