@@ -42,6 +42,7 @@ return view ('backend.user.view-user', $data);
         $data->usertype= 'admin';
         $data->role= $request->role;
         $data->name= $request->name;
+        $data->organization= $request->organization;
         $data->email= $request->email;
         $data->password= bcrypt($code);
         $data->code=$code;

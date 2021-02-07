@@ -78,6 +78,21 @@
 
 
                                     <div class="form-group row">
+                                        <label for="organization" class="col-md-4 col-form-label text-md-right">{{ __('Organization') }}</label>
+
+
+                                        <div class="col-md-4">
+                                            <input name="organization" id="organization" type="text" class="form-control" required ="">
+                                            <font style="color:red">{{($errors->has('name'))?($errors->first('name')): ''}}</font>
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="form-group row">
                                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                         <div class="col-md-4">

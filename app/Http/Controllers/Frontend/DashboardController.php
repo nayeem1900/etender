@@ -78,7 +78,7 @@ class DashboardController extends Controller
             }
         }
 
-        return redirect()->route('dashboard')->with('success','Product saved');
+        return redirect()->route('dashboard')->with('error','Product allready installed');
     }
 
     public function edit(Request $request) {
