@@ -1,0 +1,40 @@
+{
+  "name": "jautocalc",
+  "version": "1.2.0",
+  "description": "jQuery plugin for doing calculations",
+  "main": "jAutoCalc.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "watch": "./node_modules/.bin/webpack --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c17r/jAutoCalc.git"
+  },
+  "keywords": [
+    "jq",
+    "calc",
+    "jquery",
+    "autocalc",
+    "jautocalc",
+    "calculation",
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "author": "Christian Sauer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/c17r/jAutoCalc/issues"
+  },
+  "homepage": "https://github.com/c17r/jAutoCalc#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jquery": "^3.3.38",
+    "copy-webpack-plugin": "^6.0.2",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

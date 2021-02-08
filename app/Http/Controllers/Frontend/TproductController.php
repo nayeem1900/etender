@@ -24,6 +24,7 @@ class TproductController extends Controller
         $product =new Tproduct();
 
         $product->name=$request->name;
+        $product->total_qty=$request->total_qty;
         $product->created_by=Auth::user()->id;
         $product->save();
         return redirect()->route('tproducts.view')->with('success','Product saved');
@@ -43,9 +44,18 @@ class TproductController extends Controller
         $product =Tproduct::find($id);
 
         $product->name=$request->name;
+        $product->total_qty=$request->total_qty;
         $product->updated_by=Auth::user()->id;
         $product->save();
         return redirect()->route('tproducts.view')->with('success','Product Updated');
+
+    }
+
+    public function delete($id){
+        $product=Tproduct::find($id);
+        $product->delete();
+        return redirect()->route('tproducts.view')->with('Deleted','Product Deleted Successfully');
+
 
     }
 

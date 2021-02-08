@@ -15,7 +15,7 @@ use App\User;
 class DashboardController extends Controller
 {
 
-  public function view(Request $request){
+  public function view(){
       $id=Auth::user()->id;
 //      $data['allData']=User::find($id);
 //      $data['allData']=Stproduct::find($id);
@@ -30,8 +30,7 @@ class DashboardController extends Controller
           'stproducts.orgin',
           'stproducts.unit',
           'stproducts.pack_size',
-          'tproducts.total_qty as total_qty',
-          'stproducts.total_price',
+          'stproducts.net_price',
           'users.name as user_name',
           'users.organization'
       )
@@ -39,7 +38,6 @@ class DashboardController extends Controller
           ->join('tproducts', ['stproducts.tproduct_id' => 'tproducts.id'])
           ->join('users', ['users.id' => 'stproducts.created_by'])
           ->get();
-
 
       return view('frontend.stproduct.view-stproduct', $data);
   }
@@ -73,19 +71,14 @@ class DashboardController extends Controller
                     $product->orgin = $request->orgin[$i];
                     $product->unit = $request->unit[$i];
                     $product->pack_size = $request->pack_size[$i];
-                    $product->total_qty = $request->total_qty[$i];
-                    $product->total_price = $request->total_price[$i];
-
+                    $product->net_price = $request->net_price[$i];
                     $product->created_by = Auth::user()->id;
                     $product->save();
-
-
                 }
             }
         }
 
-
-        return redirect()->route('dashboard')->with('success','Product  installed');
+        return redirect()->route('dashboard')->with('error','Product allready installed');
     }
 
     public function edit(Request $request) {
@@ -101,8 +94,7 @@ class DashboardController extends Controller
         $product->orgin = $request->orgin;
         $product->unit = $request->unit;
         $product->pack_size = $request->pack_size;
-        $product->total_qty = $request->total_qty;
-        $product->total_price = $request->total_price;
+        $product->net_price = $request->net_price;
         $product->created_by = Auth::user()->id;
         $product->update();
     }

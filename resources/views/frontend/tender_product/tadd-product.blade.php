@@ -61,6 +61,11 @@
                                         </div>
 
 
+                                        <div class="col-md-4">
+                                            <label for="name">Total Quantity <font style="color: red">*</font></label>
+                                            <input type="text" name="total_qty"  class="form-control form-control-sm"id="total_qty">
+
+                                        </div>
 
 
 

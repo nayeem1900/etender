@@ -51,6 +51,7 @@
                                         <th>SL.</th>
 
                                         <th>Product Name</th>
+                                        <th>Total Quantity</th>
 
                                         <th>Action</th>
                                     </tr>
@@ -63,13 +64,18 @@
 
 
                                             <td>{{($product->name)}}</td>
+                                            <td>{{($product->total_qty)}}</td>
 
 
 
 
                                             <td>
-                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('products.edit',$product->id)}}"><i class="fa fa-edit"></i></a>
-                                                <a title="Delete" class="btn btn-sm btn-danger" href="{{route('products.delete',$product->id)}}"><i class="fa fa-trash"></i></a>
+                                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('tproducts.edit',$product->id)}}"><i class="fa fa-edit"></i></a>
+
+                                                <form action="{{route('tproducts.delete',$product->id)}}" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                                </form>
 
 
                                             </td>

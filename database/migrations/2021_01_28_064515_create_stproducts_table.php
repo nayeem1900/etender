@@ -19,8 +19,10 @@ class CreateStproductsTable extends Migration
             $table->string('brand');
             $table->string('orgin');
             $table->string('unit');
+            $table->double('unit_price');
             $table->string('pack_size');
-            $table->double('net_price');
+            $table->double('total_qty');
+            $table->double('total_price');
             $table->tinyInteger('status')->default('0');
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

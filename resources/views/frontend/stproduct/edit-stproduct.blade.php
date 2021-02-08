@@ -94,12 +94,12 @@
                                                 <input type="text" name="pack_size" value="{{$stproduct->pack_size}}"  class="form-control form-control-sm" id="pack_size">
 
                                             </div>
-                                            <div class="col-md-4">
-                                                <label for="name">Net Price <font style="color: red">*</font></label>
-                                                <input type="text" name="net_price" value="{{$stproduct->net_price}}"  class="form-control form-control-sm" id="net_price">
+                                            {{--<div class="col-md-4">
+                                                <label for="name">Total Price <font style="color: red">*</font></label>
+                                                <input type="text" name="total_price" value="{{$stproduct->total_price}}"  class="form-control form-control-sm" id="net_price">
 
                                             </div>
-                                        </div>
+                                        </div>--}}
 
 
                                     </div>

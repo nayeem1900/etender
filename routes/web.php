@@ -149,16 +149,29 @@ Route::group(['middleware' => ['auth','admin']], function() {
         Route::get('/delete/{id}', 'Backend\CategoryController@delete')->name('category.delete');
     });
 
-    Route::prefix ('products')->group (function () {
+    Route::prefix ('datatable')->group (function () {
 
 
-        Route::get('/view', 'Backend\ProductController@view')->name('products.view');
-        Route::get('/add', 'Backend\ProductController@add')->name('products.add');
-        Route::post('/store', 'Backend\ProductController@store')->name('products.store');
-        Route::get('/edit/{id}', 'Backend\ProductController@edit')->name('products.edit');
-        Route::post('/update/{id}', 'Backend\ProductController@update')->name('products.update');
-        Route::post('/delete/{id}', 'Backend\ProductController@delete')->name('products.delete');
+        Route::get('/view', 'Backend\DatatableController@view')->name('datatable.view');
+        Route::get('/add', 'Backend\DatatableController@add')->name('datatable.add');
+        Route::post('/store', 'Backend\DatatableController@store')->name('datatable.store');
+        Route::get('/edit/{id}', 'Backend\DatatableController@edit')->name('datatable.edit');
+        Route::post('/update/{id}', 'Backend\DatatableController@update')->name('datatable.update');
+        Route::post('/delete/{id}', 'Backend\DatatableController@delete')->name('datatable.delete');
     });
+
+    Route::prefix ('suppliers')->group (function () {
+
+
+        Route::get('/view', 'Backend\SupplierController@view')->name('suppliers.view');
+        Route::get('/add', 'Backend\SupplierController@add')->name('suppliers.add');
+        Route::post('/store', 'Backend\SupplierController@store')->name('suppliers.store');
+        Route::get('/edit/{id}', 'Backend\SupplierController@edit')->name('suppliers.edit');
+        Route::post('/update/{id}', 'Backend\SupplierController@update')->name('suppliers.update');
+        Route::get('/delete/{id}', 'Backend\SupplierController@delete')->name('suppliers.delete');
+    });
+
+
 
     Route::prefix ('tproducts')->group (function () {
 
@@ -168,6 +181,7 @@ Route::group(['middleware' => ['auth','admin']], function() {
         Route::post('/store', 'Frontend\TProductController@store')->name('tproducts.store');
         Route::get('/edit/{id}', 'Frontend\TProductController@edit')->name('tproducts.edit');
         Route::post('/update/{id}', 'Frontend\TProductController@update')->name('tproducts.update');
+        Route::post('/delete/{id}', 'Frontend\TProductController@delete')->name('tproducts.delete');
 
     });
 

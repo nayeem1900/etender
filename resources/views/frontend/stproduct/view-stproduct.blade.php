@@ -55,7 +55,8 @@
                                         <th>Orgin Name</th>
                                         <th>Unit Name</th>
                                         <th>Pack Size</th>
-                                        <th>Net Price</th>
+                                        <th>Total Quantity</th>
+                                        <th>Total Price</th>
 
                                         <th>Action</th>
                                     </tr>
@@ -71,7 +72,8 @@
                                             <td>{{($data->orgin)}}</td>
                                             <td>{{($data->unit)}}</td>
                                             <td>{{($data->pack_size)}}</td>
-                                            <td>{{($data->net_price)}}</td>
+                                            <td>{{($data->total_qty)}}</td>
+                                           <td>{{($data->total_price)}}</td>
                                             <td>
                                                 <a title="Edit" class="btn btn-sm btn-primary" href="{{route('dashboard.edit', ['id' => $data->stp_id])}}"><i class="fa fa-edit"></i></a>
                                                 <a title="Details" target="_blank" class="btn btn-sm btn-success" href=""><i class="fa fa-eye"></i></a>
@@ -100,5 +102,25 @@
         </section>
         <!-- /.content -->
     </div>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function(){
+
+            var counter = 0;
+            $(document).on("click",".addeventmore",function(){
+                var whole_extra_item_add=$("#whole_extra_item_add").html();
+                $(this).closest(".add_item").append(whole_extra_item_add);
+                counter++;
+            });
+            $(document).on("click",".removeeventmore",function(event){
+                $(this).closest("#delete_whole_extra_item_add").remove();
+                counter -= 1;
+            });
+        });
+
+
+    </script>
 
 @endsection
