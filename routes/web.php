@@ -47,7 +47,7 @@ Route::post('/supplier-store', 'Frontend\SupplierLoginController@supplierStore')
 Route::get('/email-verify', 'Frontend\SupplierLoginController@emailVerify')->name('email.verify');
 Route::post('/verify-store', 'Frontend\SupplierLoginController@verifyStore')->name('verify.store');
 
-
+Route::get('show-items-qty/{productid}','Frontend\TProductController@show_total_qty_by_pid');
 
 
 Auth::routes();
@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth','supplier']], function() {
     Route::get('/view', 'Frontend\DashboardController@view')->name('dashboard.view');
     Route::get('/edit/{id}', 'Frontend\DashboardController@edit')->name('dashboard.edit');
     Route::post('/edit/{id}', 'Frontend\DashboardController@update')->name('dashboard.update');
+
     Route::prefix ('stproducts')->group (function () {
 
 
@@ -182,6 +183,7 @@ Route::group(['middleware' => ['auth','admin']], function() {
         Route::get('/edit/{id}', 'Frontend\TProductController@edit')->name('tproducts.edit');
         Route::post('/update/{id}', 'Frontend\TProductController@update')->name('tproducts.update');
         Route::post('/delete/{id}', 'Frontend\TProductController@delete')->name('tproducts.delete');
+
 
     });
 

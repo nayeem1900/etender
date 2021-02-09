@@ -72,6 +72,7 @@ class DashboardController extends Controller
                     $product->brand = $request->brand[$i];
                     $product->orgin = $request->orgin[$i];
                     $product->unit = $request->unit[$i];
+                    $product->unit_price = $request->unit_price[$i];
                     $product->pack_size = $request->pack_size[$i];
                     $product->total_qty = $request->total_qty[$i];
                     $product->total_price = $request->total_price[$i];

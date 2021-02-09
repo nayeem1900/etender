@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Tproduct;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\DB;
 class TproductController extends Controller
 {
     public function view(){
@@ -36,6 +37,13 @@ class TproductController extends Controller
 
         return view('frontend.tender_product.tedit-product',$data);
 
+    }
+    public function show_total_qty_by_pid($productid){
+        //echo $productid;exit;
+        $tproduct = DB::select('SELECT sum(total_qty)as tpqty from tproducts where id='.$productid.'');
+        //echo $tproduct[0]->tpqty;exit;
+        //print_r($tproduct);exit;
+        echo json_encode($tproduct[0]->tpqty);
     }
 
     public function update(Request $request, $id){

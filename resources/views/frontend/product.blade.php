@@ -54,9 +54,9 @@
                                         <div class="form-row">
 
                                             <div class="form-group row">
-                                                <label>Product Name</label>
+                                                a-i               <label>Product Name</label>
                                                 <div class="col-md-10">
-                                                    <select name="tproduct_id[]"class="form-control" id="tproduct_id">
+                                                    <select name="tproduct_id[]"class="form-control tproduct_id" data-id="pdqty" id="">
                                                         <option value="">Select Product</option>
                                                         @foreach($tproducts as $tproduct)
                                                             <option value="{{$tproduct->id}}">{{$tproduct->name}}</option>
@@ -70,42 +70,42 @@
                                         </div>
 
                                         <div class="form-row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="name[]">Brand Name <font style="color: red">*</font></label>
                                                 <input type="text" name="brand[]"  class="form-control form-control-sm"id="brand">
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="name">Orgin Name <font style="color: red">*</font></label>
                                                 <input type="text" name="orgin[]"  class="form-control form-control-sm"id="orgin">
 
 
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="name">Unit Name <font style="color: red">*</font></label>
                                                 <input type="text" name="unit[]"  class="form-control form-control-sm"id="unit">
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="name">Unit Price <font style="color: red">*</font></label>
                                                 <input type="text" name="unit_price[]"  class="form-control form-control-sm"id="unit">
 
                                             </div>
 
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="name">Pack Size <font style="color: red">*</font></label>
                                                 <input type="text" name="pack_size[]"  class="form-control form-control-sm"id="pack_size">
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <label for="name">Total Quantity <font style="color: red">*</font></label>
-
-
+                                                <input type="text" name="total_qty[]" value="0" id="pdqty">
 
                                             </div>
-                                            <div class="col-md-4">
+
+                                            <div class="col-md-3">
                                                 <label for="name">Total Price <font style="color: red">*</font></label>
                                                 <input type="text" name="total_price[]"  class="form-control form-control-sm"id="total_price">
 
@@ -158,7 +158,7 @@
 
                     <div class="form-group col-md-5">
                         <label>Product Name</label>
-                        <select name="tproduct_id[]"class="form-control">
+                        <select name="tproduct_id[]"class="form-control tproduct_id pdqty_id" data-id="pdqty">
                             <option value="">Select Product</option>
                             @foreach($tproducts as $tproduct)
                                 <option value="{{$tproduct->id}}">{{$tproduct->name}}</option>
@@ -169,42 +169,42 @@
 
 
                     <div class="form-row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="name">Brand Name <font style="color: red">*</font></label>
                             <input type="text" name="brand[]"  class="form-control form-control-sm"id="brand">
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="name">Orgin Name <font style="color: red">*</font></label>
                             <input type="text" name="orgin[]"  class="form-control form-control-sm"id="orgin">
 
 
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="name">Unit Name <font style="color: red">*</font></label>
                             <input type="text" name="unit[]"  class="form-control form-control-sm"id="unit">
 
                         </div>
+                        <div class="col-md-3">
+                            <label for="name">Unit Price <font style="color: red">*</font></label>
+                            <input type="text" name="unit_price[]"  class="form-control form-control-sm"id="unit">
 
+                        </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="name">Pack Size <font style="color: red">*</font></label>
                             <input type="text" name="pack_size[]"  class="form-control form-control-sm"id="pack_size">
 
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="name">Total Quantity <font style="color: red">*</font></label>
-
-                            <input type="" name="total_qty[]"  class="form-control form-control-sm"id="total_qty">
-
-
-
+                            <input type="text" name="total_qty[]" class="pdqty"  value="0" id="">
 
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label for="name">Total Price <font style="color: red">*</font></label>
                             <input type="text" name="total_price[]"  class="form-control form-control-sm"id="total_price">
 
@@ -242,11 +242,31 @@
 
 
         $(document).ready(function(){
-
+            //var no=0;
+            //$('.tproduct_id').on('change',function(){
+            $('body').on('change', '.tproduct_id', function() {
+                var productid=$(this).val();
+                var qty_id=$(this).data('id');
+                //alert(qty_id);
+                $.ajax({
+                    type: "GET",
+                    url: "<?= URL::to('show-items-qty'); ?>/" + productid ,
+                    dataType: "JSON",
+                    data: {}, //expect html to be returned
+                    success: function (data) {
+                        $("#"+qty_id).val(data);
+                    }
+                });
+                //alert(productid);
+            });
             var counter = 0;
             $(document).on("click",".addeventmore",function(){
+                var qty_add_cls='pdqty_'+counter;
+                $(".pdqty_id").attr('data-id',"pdqty_"+counter);
+                $(".pdqty").attr('id','pdqty_'+counter);
                 var whole_extra_item_add=$("#whole_extra_item_add").html();
                 $(this).closest(".add_item").append(whole_extra_item_add);
+                $("#"+qty_add_cls).removeClass('pdqty');
                 counter++;
             });
             $(document).on("click",".removeeventmore",function(event){
@@ -312,7 +332,7 @@
     </script>
 
 
-{{--product show--}}
+    {{--product show--}}
 
 
 

@@ -214,7 +214,8 @@
 
                                         <td>
                                             <a title="Edit" class="btn btn-sm btn-primary" href=""><i class="fa fa-edit"></i></a>
-
+                                            <a title="Add" class="btn btn-sm btn-primary" name="add" id="add" href=""><i class="fa fa-circle"></i></a>
+                                            <button type="button" name="save" id="save">Save</button>
                                             <form action="" method="post">
                                                 @csrf
                                                 <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
@@ -232,20 +233,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>Save</th>
+                                        <th><button type="submit" name="save" id="save">Save</button> </th>
                                         <th>Browser</th>
                                         <th>Platform(s)</th>
                                         <th>Engine version</th>
@@ -253,7 +244,8 @@
                                     </tr>
                                     </tfoot>
                                 </table>
-                            </div>
+                            </div><br/>
+                            <div id="inserted_data_item"></div>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
@@ -471,44 +463,20 @@
     });
 
 </script>
-<script type="text/javascript">
-    <!--
-    $(document).ready(function() {
 
-        function autoCalcSetup() {
-            $('form[name=cart]').jAutoCalc('destroy');
-            $('form[name=cart] tr[name=line_items]').jAutoCalc({keyEventsFire: true, decimalPlaces: 2, emptyAsZero: true});
-            $('form[name=cart]').jAutoCalc({decimalPlaces: 2});
-        }
-        autoCalcSetup();
-
-
-        $('button[name=remove]').click(function(e) {
-            e.preventDefault();
-
-            var form = $(this).parents('form')
-            $(this).parents('tr').remove();
-            autoCalcSetup();
-
-        });
-
-        $('button[name=add]').click(function(e) {
-            e.preventDefault();
-
-            var $table = $(this).parents('table');
-            var $top = $table.find('tr[name=line_items]').first();
-            var $new = $top.clone(true);
-
-            $new.jAutoCalc('destroy');
-            $new.insertBefore($top);
-            $new.find('input[type=text]').val('');
-            autoCalcSetup();
-
-        });
-
-    });
-    //-->
-</script>
 
 </body>
 </html>
+
+<script>
+
+$(document).ready(function(){
+    var count=1;
+    $('#add').click(function () {
+        count=count+1;
+        var html_code="<tr id='row"+count+"'>";
+        html_code+="<td>"
+    });
+});
+
+</script>
