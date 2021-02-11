@@ -1,3 +1,37 @@
+ <script type="text/javascript">
+        $(document).ready(function () {
+
+            $( "#pdqty" ).change(function() {
+                multiply();
+            });
+
+            /*$( "#unit_p" ).change(function() {
+                multiply();
+            });*/
+
+            function multiply() {
+
+
+               var unit_price=$("#unit_p").val();
+               var total_qty= $("#pdqty").val();
+
+               var total_price=unit_price*total_qty;
+                $("#total_p").val(total_price);
+
+
+            }
+
+        });
+
+
+
+    </script>
+
+
+
+
+
+
 @extends('backend.layouts.master')
 
 @section('content')
@@ -54,7 +88,7 @@
                                         <div class="form-row">
 
                                             <div class="form-group row">
-                                                              <label>Product Name</label>
+                                                a-i               <label>Product Name</label>
                                                 <div class="col-md-10">
                                                     <select name="tproduct_id[]"class="form-control tproduct_id" data-id="pdqty" id="">
                                                         <option value="">Select Product</option>
@@ -84,11 +118,11 @@
 
                                             <div class="col-md-3">
                                                 <label for="name">Unit Name <font style="color: red">*</font></label>
-                                                <input type="text" name="unit[]" value="pcs" readonly class="form-control form-control-sm"id="unit">
+                                                <input type="text" name="unit[]" value="pcs"  class="form-control form-control-sm"id="unit">
 
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="name">Unit Price <font style="color: red">*</font></label>
+                                                <label for="name">Unit Price22 <font style="color: red">*</font></label>
                                                 <input type="text" name="unit_price[]"  class="form-control form-control-sm" id="unit_p">
 
                                             </div>
@@ -100,8 +134,8 @@
 
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="name">Total Quantity <font style="color: red">*</font></label>
-                                                <input type="text" name="total_qty[]" readonly value="0" id="pdqty" >
+                                                <label for="name">Total Quantity22 <font style="color: red">*</font></label>
+                                                <input type="text" name="total_qty[]" value="0" id="pdqty" >
 
                                             </div>
 
@@ -183,7 +217,7 @@
 
                         <div class="col-md-3">
                             <label for="name">Unit Name <font style="color: red">*</font></label>
-                            <input type="text" name="unit[]" value="pcs" readonly class="form-control form-control-sm"id="unit">
+                            <input type="text" name="unit[]" value="pcs" class="form-control form-control-sm"id="unit">
 
                         </div>
                         <div class="col-md-3">
@@ -200,7 +234,7 @@
 
                         <div class="col-md-3">
                             <label for="name">Total Quantity <font style="color: red">*</font></label>
-                            <input type="text" name="total_qty[]" readonly class="pdqty"  value="0" id="pdqty">
+                            <input type="text" name="total_qty[]" class="pdqty"  value="0" id="pdqty">
 
                         </div>
 
@@ -236,50 +270,31 @@
 
     </div>
 
-{{--<script>
-$(document).ready()(function () {
-
-  $("#pdqty,#unit_p").keyup(function () {
-
-      var qty_id=$(this).data('id');
-      var x=number($("#pdqty").val());
-      var x=number($("#unit_p").val());
-      var total_p=x*y;
-      $('#total_p').val(total_p);
-  });
-
-});
-    
-
-
-
-</script>--}}
-
     <script type="text/javascript">
         $(document).ready(function () {
 
-            /*$( "#pdqty" ).change(function() {
+            $( "#pdqty" ).change(function() {
                 multiply();
             });
-*/
-            $( "#unit_p" ).change(function() {
+
+            /*$( "#unit_p" ).change(function() {
                 multiply();
-            });
+            });*/
 
             function multiply() {
 
 
-
+               var unit_price=$("#unit_p").val();
                var total_qty= $("#pdqty").val();
-                var unit_price=$("#unit_p").val();
 
-               var total_price=total_qty*unit_price;
+               var total_price=unit_price*total_qty;
                 $("#total_p").val(total_price);
 
 
             }
 
         });
+
 
 
     </script>

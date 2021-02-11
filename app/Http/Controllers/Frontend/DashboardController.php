@@ -76,7 +76,6 @@ class DashboardController extends Controller
                     $product->pack_size = $request->pack_size[$i];
                     $product->total_qty = $request->total_qty[$i];
                     $product->total_price = $request->total_price[$i];
-
                     $product->created_by = Auth::user()->id;
                     $product->save();
 
